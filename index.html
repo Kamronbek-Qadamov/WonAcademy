@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Won Academy — Modern English Grammar Platform</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-brand" onclick="switchTab('home')">
+                <i class="fa-solid fa-graduation-cap logo-icon"></i>
+                <span>Won<span class="highlight">Academy</span></span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" onclick="switchTab('home')"><i class="fa-solid fa-house"></i>
+                    Bosh sahifa</a>
+                <a href="#lessons" class="nav-link" onclick="switchTab('lessons')"><i class="fa-solid fa-book-open"></i>
+                    Darslar</a>
+                <a href="#flashcards" class="nav-link" onclick="switchTab('flashcards')"><i
+                        class="fa-solid fa-clone"></i> Flashcards</a>
+                <a href="#quiz-hub" class="nav-link" onclick="switchTab('quiz-hub')"><i class="fa-solid fa-vial"></i>
+                    Quiz</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="user-pill" onclick="switchTab('profile')">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span id="navUserName">Foydalanuvchi</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="main-wrapper">
+
+        <!-- 1. HOME SECTION (Landing Page) -->
+        <section id="home-section" class="tab-content active">
+            <div class="hero-banner">
+                <div class="hero-text">
+                    <span class="badge-neon"><i class="fa-solid fa-bolt"></i> Mukammal ta'lim platformasi</span>
+                    <h1>Ingliz tili grammatikasini <span class="text-glow">0 dan ADVANCEDgacha</span> eng interaktiv
+                        usulda
+                        o'rganing</h1>
+                    <p>Akademik nazariya, amaliy topshiriqlar, audio talaffuzlar va avtomatik sertifikat tizimi bilan
+                        bilimlaringizni oshiring.</p>
+                    <div class="hero-btns">
+                        <button class="btn btn-primary btn-glow" onclick="switchTab('lessons')">
+                            <i class="fa-solid fa-play"></i> Darslarni Boshlash
+                        </button>
+                        <button class="btn btn-secondary" onclick="switchTab('flashcards')">
+                            <i class="fa-solid fa-cards-blank"></i> Flashcardlar
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card c1">
+                        <i class="fa-solid fa-check-circle icon-green"></i>
+                        <div>
+                            <h4>A1 - C1 Bosqichlar</h4>
+                            <p>Ketma-ket tizim</p>
+                        </div>
+                    </div>
+                    <div class="floating-card c2">
+                        <i class="fa-solid fa-award icon-gold"></i>
+                        <div>
+                            <h4>Sertifikat</h4>
+                            <p>Rasmiy daraja</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Grid -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="f-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Tizimli Darslar</h3>
+                    <p>Grammatika qoidalari va o'zbek tilidagi tushunarli tushuntirishlar bilan boyitilgan
+                        bosqichma-bosqich darslar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon"><i class="fa-solid fa-volume-high"></i></div>
+                    <h3>Native Audio</h3>
+                    <p>Har bir inglizcha misol va so'z va iboralarning to'g'ri talaffuzini real vaqtda eshitish
+                        imkoniyati.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <h3>Interaktiv Quizlar</h3>
+                    <p>Testlarni yeching, ball to'plang va xatolaringiz ustida batafsil tahlil orqali ishlang.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. LESSONS SECTION -->
+        <section id="lessons-section" class="tab-content">
+            <div class="section-header">
+                <h2>Grammatika Darslari va Darajalar</h2>
+                <p>O'zingizga mos keladigan darajani tanlang va darslarni ketma-ket bajaring.</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="level-filters" id="levelFilters">
+                <button class="filter-btn active" data-level="all">Barchasi</button>
+                <button class="filter-btn" data-level="A1">A1 - Beginner</button>
+                <button class="filter-btn" data-level="A2">A2 - Elementary</button>
+                <button class="filter-btn" data-level="B1">B1 - Intermediate</button>
+                <button class="filter-btn" data-level="B2">B2 - Upper Intermediate</button>
+                <button class="filter-btn" data-level="C1">C1 - Advanced</button>
+            </div>
+
+            <!-- Lessons Grid -->
+            <div class="lessons-grid" id="lessonsGrid">
+                <!-- JS dynamically fills lesson cards here -->
+            </div>
+        </section>
+
+        <!-- 3. LESSON DETAIL & QUIZ VIEW (Modal/Sub-page) -->
+        <section id="lesson-detail-section" class="tab-content">
+            <button class="btn btn-outline back-btn" onclick="switchTab('lessons')">
+                <i class="fa-solid fa-arrow-left"></i> Darslarga qaytish
+            </button>
+
+            <div class="lesson-detail-container" id="lessonDetailContainer">
+                <!-- JS dynamically renders lesson content, rules, formulas and quiz -->
+            </div>
+        </section>
+
+        <!-- 4. FLASHCARDS SECTION -->
+        <section id="flashcards-section" class="tab-content">
+            <div class="section-header">
+                <h2>Grammatika Flashcardlari</h2>
+                <p>Qoidalarni tezkor eslab qolish uchun kartochkalarni bosing va ularni aylantirib o'rganing.</p>
+            </div>
+
+            <div class="flashcards-container" id="flashcardsContainer">
+                <!-- JS dynamically renders flip cards here -->
+            </div>
+        </section>
+
+        <!-- 5. PROFILE & CERTIFICATE SECTION -->
+        <section id="profile-section" class="tab-content">
+            <div class="profile-layout">
+                <!-- Profile Info Card -->
+                <div class="profile-card">
+                    <div class="avatar-wrapper">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <div class="profile-inputs">
+                        <label for="usernameInput">Ism va Familiyangiz:</label>
+                        <input type="text" id="usernameInput" class="custom-input" placeholder="Ismingizni kiriting...">
+                        <button class="btn btn-primary" onclick="saveUserProfile()">
+                            <i class="fa-solid fa-floppy-disk"></i> Saqlash
+                        </button>
+                    </div>
+
+                    <div class="stats-overview">
+                        <div class="stat-box">
+                            <span class="stat-num" id="statCompletedLessons">0</span>
+                            <span class="stat-label">Tugatilgan darslar</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num" id="statTotalScore">0</span>
+                            <span class="stat-label">Umumiy Ball</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-info">
+                            <span>Umumiy Progress:</span>
+                            <strong id="progressPercentText">0%</strong>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="profileProgressBar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate View Card -->
+                <div class="certificate-wrapper" id="certificateWrapper">
+                    <div class="certificate-card" id="certificateCard">
+                        <div class="cert-border">
+                            <div class="cert-header">
+                                <i class="fa-solid fa-graduation-cap cert-logo"></i>
+                                <h3>Won Academy Educational Platform</h3>
+                                <span class="cert-subtitle">MAHORAT VA DARAJA SERTIFIKATI</span>
+                            </div>
+                            <div class="cert-body">
+                                <p>Ushbu sertifikat tantanali ravishda topshiriladi:</p>
+                                <h1 id="certStudentName">Foydalanuvchi Ismi</h1>
+                                <p>Ingliz tili grammatikasining barcha modul va bosqichlarini muvaffaqiyatli tamomlagani
+                                    hamda yuqori natijalar ko'rsatgani uchun.</p>
+                            </div>
+                            <div class="cert-footer">
+                                <div class="cert-sign">
+                                    <span class="sign-line">Won Academy CEO</span>
+                                    <small>The best choice</small>
+                                </div>
+                                <div class="cert-badge">
+                                    <i class="fa-solid fa-certificate"></i>
+                                    <span>VERIFIED</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-glow btn-success mt-3" onclick="window.print()">
+                        <i class="fa-solid fa-print"></i> Sertifikatni Yuklab Olish / Ulashish
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- 6. MIXED QUIZ SECTION -->
+        <!-- INTEGRATED QUIZ HUB & LEADERBOARD SECTION -->
+        <section id="quiz-hub-section" class="tab-content">
+            <div class="quiz_demo">
+                <p>Quiz bo'limi tez orada ishga tushadi...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 WonAcademy. Barcha huquqlar saqlangan. Yuksak ta'lim standarti uchun yaratilgan.</p>
+        </div>
+    </footer>
+    <script src="./app.js"></script>
+</body>
+
+</html>
